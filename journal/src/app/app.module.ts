@@ -6,10 +6,10 @@ import { JournalEntryComponent } from './journal-entry/journal-entry.component';
 import { JournalEntryListComponent } from './journal-entry/journal-entry-list/journal-entry-list.component';
 import { JournalEntryItemComponent } from './journal-entry/journal-entry-item/journal-entry-item.component';
 import { JournalEntryDetailsComponent } from './journal-entry/journal-entry-details/journal-entry-details.component';
-import { JournalEntryCreateComponent } from './journal-entry/journal-entry-create/journal-entry-create.component';
 import { JournalEntryEditComponent } from './journal-entry/journal-entry-edit/journal-entry-edit.component';
 import { RouterModule } from '@angular/router';
-
+import { AppRoutingModule } from './app.routing.model';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,14 +17,12 @@ import { RouterModule } from '@angular/router';
     JournalEntryListComponent,
     JournalEntryItemComponent,
     JournalEntryDetailsComponent,
-    JournalEntryCreateComponent,
-    JournalEntryEditComponent
+    JournalEntryEditComponent, 
   ],
   imports: [
     BrowserModule, 
-    // RouterModule.forRoot([
-    //   {path: 'details', component: JournalEntryDetailsComponent},
-    // ]),
+    AppRoutingModule, 
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,1 +1,30 @@
-<p>journal-entry-details works!</p>
+<div class="panel panel-default p-3">
+    <div class="panel-heading">
+      <div class="row pad-all">
+        <h4 class="title margin-left-right">{{entry.title}}</h4>
+        <h5 class="title margin-left-right">{{entry.date}}</h5>
+        <div class="row pull-right margin-left-right">
+          <!-- <a class="btn btn-primary">View</a> -->
+          <a class="btn btn-info" [routerLink]="['edit']" >Edit</a>
+          <a class="btn btn-danger" >Delete</a>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="pad-left-right">
+        <br>
+        <div class="row">
+          <label>Happy Thing One: </label>
+          <span class="label-value">{{entry.greatThing1}}</span><br>
+          <label>Happy Thing Two: </label>
+          <span class="label-value">{{entry.greatThing2}}</span><br>
+          <label>Happy Thing Three: </label>
+          <span class="label-value">{{entry.greatThing3}}</span><br>
+        </div>
+        <br>
+        <div class="row">
+            <p>{{entry.entry}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

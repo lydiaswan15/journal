@@ -1,1 +1,102 @@
-<p>journal-entry-edit works!</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+  
+      <form id="document-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="title">Document Title:</label>
+            <input
+              [ngModel]=entry?.title
+              #name = "ngModel"
+              type="text"
+              id="title"
+              class="form-control"
+              size="120"
+              max="120"
+              name="title"
+              ngModel
+              required>
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-group">
+              <label for="greatThing1">First Great Thing</label>
+              <input
+                [ngModel]=entry?.greatThing1
+                #name = "ngModel"
+                type="text"
+                id="greatThing1"
+                class="form-control"
+                size="120"
+                max="120"
+                name="greatThing1"
+                ngModel
+                required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <label for="greatThing2">Second Great Thing</label>
+              <input
+                [ngModel]=entry?.greatThing2
+                #name = "ngModel"
+                type="text"
+                id="greatThing2"
+                class="form-control"
+                size="120"
+                max="120"
+                name="greatThing2"
+                ngModel
+                required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <label for="greatThing3">Third Great Thing</label>
+              <input
+                [ngModel]=entry?.greatThing3
+                #name = "ngModel"
+                type="text"
+                id="greatThing3"
+                class="form-control"
+                size="120"
+                max="120"
+                name="greatThing3"
+                ngModel
+                required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12 form-group">
+              <label for="entry">Entry</label>
+              <textarea
+                [ngModel]=entry?.entry
+                #name = "ngModel"
+                type="text"
+                id="entry"
+                class="form-control"
+                size="120"
+                max="120"
+                name="entry"
+                ngModel
+                required></textarea>
+            </div>
+          </div>
+
+        
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <button class="btn btn-success" type="submit" [disabled]= "!f.valid">Save</button>
+            <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+          </div>
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
+  
