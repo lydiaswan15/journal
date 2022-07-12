@@ -76,4 +76,8 @@ export class JournalEntryEditComponent implements OnInit {
   }
   onCancel(){}
 
+  onDelete(){
+    this.entryService.deleteEntry(this.entry);
+  }
+
 }
