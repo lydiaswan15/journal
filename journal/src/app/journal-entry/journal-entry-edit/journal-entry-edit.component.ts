@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { JournalEntry } from '../journal-entries-model';
 import { JournalEntryService } from '../journal-entry.service';
@@ -22,13 +22,14 @@ export class JournalEntryEditComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) =>{
       let id = +params['id'];
+
+      console.log(id);
   
-      if(!id){
+      if(id == null){
         this.editMode = false;
         return;
       }
 
-      console.log('this is no longer running');
       this.originalEntry = this.entryService.getEntry(id);
       if(this.originalEntry == undefined || null){
         return;
@@ -54,7 +55,6 @@ export class JournalEntryEditComponent implements OnInit {
     if(!this.originalEntry){
       // There is no id and we need to set one. 
       id = this.entryService.getMaxId();
-      console.log(id);
     }
     else{
       // We are editing a current document and will use the old id. 

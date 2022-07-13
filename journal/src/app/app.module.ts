@@ -10,6 +10,7 @@ import { JournalEntryEditComponent } from './journal-entry/journal-entry-edit/jo
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app.routing.model';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule, HttpHandler } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,9 +23,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule, 
     AppRoutingModule, 
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

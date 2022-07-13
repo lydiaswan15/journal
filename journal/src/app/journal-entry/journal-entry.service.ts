@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { JournalEntry } from './journal-entries-model';
 import { MOCKENTRY } from './MOCKENTRY';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,10 +11,22 @@ export class JournalEntryService {
   entries: JournalEntry[] = MOCKENTRY;
   // maxEntryId: number = this.maxEntryId();
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getEntries(){
     return this.entries;
+  }
+
+  getEntriesTest(){
+     let test =  this.httpClient.get('http://localhost:3000/journal-entries')
+
+     this.httpClient.get('http://localhost:3000/documents')
+        .subscribe({
+          next: (entries) =>{
+            console.log(entries);
+          }, 
+          error: (e)=>console.log(e.mesage)
+        })
   }
 
   getEntry(id: number): JournalEntry{

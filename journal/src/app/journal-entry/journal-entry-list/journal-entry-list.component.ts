@@ -17,6 +17,7 @@ export class JournalEntryListComponent implements OnInit {
   ngOnInit(): void {
     // Create a on changed event in the recipes service and subscribe to it here to get the full list of recipes when they change. 
     this.journal_entries = this.entryService.getEntries();
+    this.entryService.getEntriesTest();
   }
 
 }
