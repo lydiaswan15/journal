@@ -1,32 +1,46 @@
-import { Injectable } from '@angular/core';
-import { JournalEntry } from './journal-entries-model';
+import { Injectable, EventEmitter } from '@angular/core';
 import { MOCKENTRY } from './MOCKENTRY';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HttpHeaders } from '@angular/common/http';
+import { JournalEntryDetailsComponent } from './journal-entry-details/journal-entry-details.component';
+import { JournalEntry } from './journal-entries.model';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class JournalEntryService {
-  entries: JournalEntry[] = MOCKENTRY;
+
+  
+  entries: JournalEntry[];
+
+  entySelectedEvent = new EventEmitter<JournalEntry>();
+  entryChangedEvent = new EventEmitter<JournalEntry[]>();
+  entryListChangedEvent = new EventEmitter<JournalEntry[]>();
+
+  // entryListChangedEvent = new Subject<JournalEntry[]>();
+  // entries: JournalEntry[] = MOCKENTRY;
   // maxEntryId: number = this.maxEntryId();
 
   constructor(private httpClient: HttpClient) { }
 
-  getEntries(){
+  getEntries(): JournalEntry[]{
+
+    this.httpClient.get('http://localhost:3000/journal-entries').subscribe({
+      next: (entries: any) =>{
+        console.log(entries);
+        this.entries = entries;
+        console.log('Entries in get :next');
+        console.log(this.entries);
+        this.entryListChangedEvent.emit(this.entries.slice());
+
+        this.sortAndSend()
+      }, 
+      error: (e) => console.log(e.message)
+    });
+
+    console.log(this.entries);
     return this.entries;
-  }
-
-  getEntriesTest(){
-     let test =  this.httpClient.get('http://localhost:3000/journal-entries')
-
-     this.httpClient.get('http://localhost:3000/documents')
-        .subscribe({
-          next: (entries) =>{
-            console.log(entries);
-          }, 
-          error: (e)=>console.log(e.mesage)
-        })
   }
 
   getEntry(id: number): JournalEntry{
@@ -107,5 +121,9 @@ export class JournalEntryService {
     this.entries.splice(pos, 1);
 
     console.log(this.entries);
+ }
+
+ sortAndSend(){
+
  }
 }

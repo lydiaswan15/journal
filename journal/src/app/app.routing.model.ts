@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { JournalEntry } from "./journal-entry/journal-entries-model";
+import { JournalEntry } from "./journal-entry/journal-entries.model";
 import { JournalEntryDetailsComponent } from "./journal-entry/journal-entry-details/journal-entry-details.component";
 import { JournalEntryEditComponent } from "./journal-entry/journal-entry-edit/journal-entry-edit.component";
 import { JournalEntryComponent } from "./journal-entry/journal-entry.component";

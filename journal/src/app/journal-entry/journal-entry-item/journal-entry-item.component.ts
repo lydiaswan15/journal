@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { JournalEntry } from '../journal-entries-model';
+import { JournalEntry } from '../journal-entries.model';
 
 @Component({
   selector: 'app-journal-entry-item',

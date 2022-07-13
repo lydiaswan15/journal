@@ -16,8 +16,6 @@ var journalEntryRoutes = require('./server/routes/journal-entry')
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ... 
 
-
-
 // establish a connection to the mongo database
 
 var app = express(); // create an instance of express

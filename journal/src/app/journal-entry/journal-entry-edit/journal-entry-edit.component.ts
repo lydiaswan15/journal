@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
+import { FormGroup, } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { JournalEntry } from '../journal-entries-model';
+import { JournalEntry } from '../journal-entries.model';
 import { JournalEntryService } from '../journal-entry.service';
 
 @Component({

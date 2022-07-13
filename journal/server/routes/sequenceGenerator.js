@@ -27,7 +27,7 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
 
   switch (collectionType) {
     
-    case 'journal-entries':
+    case 'journals':
       maxEntryId++;
       updateObject = {maxEntryId: maxEntryId};
       nextId = maxEntryId;

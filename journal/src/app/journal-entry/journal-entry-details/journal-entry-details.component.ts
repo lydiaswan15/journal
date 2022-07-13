@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params} from '@angular/router';
-import { JournalEntry } from '../journal-entries-model';
+import { JournalEntry } from '../journal-entries.model';
 import { JournalEntryService } from '../journal-entry.service';
 
 @Component({

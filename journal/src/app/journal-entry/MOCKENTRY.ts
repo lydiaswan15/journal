@@ -1,4 +1,4 @@
-import { JournalEntry } from "./journal-entries-model";
+import { JournalEntry } from "./journal-entries.model";
 
 export const MOCKENTRY: any[] = [
     {

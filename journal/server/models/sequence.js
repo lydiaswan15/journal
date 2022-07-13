@@ -7,4 +7,4 @@ const sequencesSchema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Journal', journalSchema);
+module.exports = mongoose.model('Sequences', sequencesSchema);
