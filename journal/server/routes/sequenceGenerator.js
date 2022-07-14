@@ -1,6 +1,7 @@
 var Sequence = require('../models/sequence');
 var res = require('express/lib/response');
 
+
 var maxEntryId;
 var sequenceId = null;
 
@@ -27,13 +28,14 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
 
   switch (collectionType) {
     
-    case 'journals':
+    case 'entries':
       maxEntryId++;
       updateObject = {maxEntryId: maxEntryId};
       nextId = maxEntryId;
+      console.log('Next Id: ', maxEntryId);
       break;
     default:
-      return -1;
+      return nextId;
   }
 
   Sequence.update({_id: sequenceId}, {$set: updateObject},

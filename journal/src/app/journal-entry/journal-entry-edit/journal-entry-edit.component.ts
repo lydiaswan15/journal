@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, } from '@angular/forms';
+import { FormGroup, FormsModule, NgForm, } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { JournalEntry } from '../journal-entries.model';
 import { JournalEntryService } from '../journal-entry.service';
@@ -52,6 +52,8 @@ export class JournalEntryEditComponent implements OnInit {
 
     let id: number;
 
+    console.log(form);
+
     if(!this.originalEntry){
       // There is no id and we need to set one. 
       id = this.entryService.getMaxId();
@@ -61,14 +63,14 @@ export class JournalEntryEditComponent implements OnInit {
       id = this.originalEntry.id;
     }
     let value = form.value;
+
     let newEntry = new JournalEntry(id, value.title, value.entry, value.greatThing1, value.greatThing2, value.greatThing3, new Date());
-    console.log('New entry in submit: ', newEntry);
-    console.log('edit mode before pushing: ', this.editMode);
+
     if(this.editMode == true){
       this.entryService.updateEntry(this.originalEntry, newEntry);
     }
     else{
-      console.log('Calling the add Entry not the update.')
+      console.log(newEntry);
       this.entryService.addEntry(newEntry)
     }
     this.router.navigate(['/journal-entries']);
@@ -78,6 +80,8 @@ export class JournalEntryEditComponent implements OnInit {
 
   onDelete(){
     this.entryService.deleteEntry(this.entry);
+    this.router.navigate(['/journal-entries']);
   }
 
 }
+
